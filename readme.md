@@ -9,3 +9,7 @@ The dataset is split into parts based on the
 
 ## Processing
 The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is located in the [Load_data repository](https://github.com/EIT-team/Load_data). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. 
+
+### Demodulating
+
+Individual files can be

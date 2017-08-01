@@ -1,0 +1,7 @@
+**.zip
+**/*.asv
+##**.mat
+##**.bdf
+##**_log.txt
+Patients/P*/
+Subjects/S*/
