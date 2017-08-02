@@ -1,6 +1,6 @@
 # UCLH EIT Dataset - Subjects
 
-Extract `UCLH_EIT_Subjects.zip` archive from [DOILINK](HERE) into this directory so the structure is:
+Extract `UCLH_Stroke_EIT_Subjects.zip` archive from [DOILINK](HERE) into this directory so the structure is:
 ```
 |---Subject_01a
 |   |---S1a_MF1.bdf

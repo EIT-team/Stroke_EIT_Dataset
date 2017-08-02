@@ -16,20 +16,26 @@ All processing steps are covered in the _processing_ section below
 
 So for example, to plot the full spectrum data for patient 7: `plot(EIT(7).BV)`
 
-
-
 ## Raw data files
 The raw `.bdf` files are available should you wish to recreate or alter the processing of this dataset. In total the dataset is **~150GB**, and is thus split into parts based on the Zenodo 50 GB file limit.  Please download the following zip files and extract them into the corresponding folders.
 
 -   Subject data:  DOI [10.5281/zenodo.836842](10.5281/zenodo.836842)
--   Patient data (part 1): DOI [10.5281/zenodo.836842](10.5281/zenodo.836842)
--   Patient data (part 2): DOI [10.5281/zenodo.836842](10.5281/zenodo.836842)
+-   Patient data (part 1): DOI [10.5281/zenodo.838176](10.5281/zenodo.838176)
+-   Patient data (part 2): DOI [10.5281/zenodo.838184](10.5281/zenodo.838184)
 
 Example structures for these directories are given in the readmes.
 
 ## Processing raw data
-The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is located in the [Load_data repository](https://github.com/EIT-team/Load_data). Please ensure you follow the installation instructions there, and verify the example datasets load correctly.
+The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data). Please ensure you follow the installation instructions there, and verify the example datasets load correctly.
 
 ### Demodulating
 
-Individual files can be
+Individual files can be demodulated like this
+```
+ScouseTom_LoadBV('./Subjects/Subject_01a/S1a_TD1.bdf')
+```
+
+or by calling `ScouseTom_LoadBV` without any arguments and selecting a file.
+
+-----
+All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
