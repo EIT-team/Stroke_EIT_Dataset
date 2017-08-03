@@ -1,6 +1,6 @@
 # UCLH EIT Dataset Patients
 
-Extract `UCLH_EIT_Patients_Part1.zip` and `UCLH_EIT_Patients_Part2.zip` archives from [DOILINK](HERE) and [DOILINK](HERE) into this directory so the structure is:
+Extract all archives `Patient_01.zip,  Patient_02.zip ...Patient_26.zip` from [DOILINK](HERE) and [DOILINK](HERE) into this directory so the structure is:
 ```
 |---Patient_01
 |   |---P1_MF1.bdf
