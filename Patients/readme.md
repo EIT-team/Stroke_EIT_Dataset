@@ -1,4 +1,4 @@
-# UCLH EIT Dataset Patients
+# UCLH EIT Dataset - Patients
 
 Extract all archives `Patient_01.zip,  Patient_02.zip ...Patient_26.zip` from [DOILINK](HERE) and [DOILINK](HERE) into this directory so the structure is:
 ```
