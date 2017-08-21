@@ -32,17 +32,24 @@ The processing is done in two separate parts:
 1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase.
 2. **Correction** and extraction of real component - these are the form necessary for reconstruction. Correction for the BioSemi gain and the changing injected current amplitude.
 
-
-## Data types
+## Data types - Demodulation
 For each subject and patient, there are three types of recordings:
 
-1.  Full spectrum **"Multi-Frequency"** datasets. These have the `-MF` suffix, e.g. `S1a_MF1.bdf` or `P6-MF2.bdf`
-2.  Reduced spectrum **"Time Difference"** datasets. These have the `-TD` suffix e.g. `S2b-TD1.bdf` or `P19-TD1.bdf`
-3.  Contact impedance checks  or **"Z Checks"**, with the suffix `-Z` e.g. `S6-Z2.bdf` or `P11-Z4.bdf`.
+1.  Full spectrum **"Multi-Frequency"** datasets. These have the `-MF` suffix, e.g. `S1a_MF1.bdf` or `P6-MF2.bdf`. This used a 31 injection pair protocol With 17 frequencies and 3 frames.
+2.  Reduced spectrum **"Time Difference"** datasets. These have the `-TD` suffix e.g. `S2b-TD1.bdf` or `P19-TD1.bdf`. This has only 3 frequencies but was repeated for 60 frames.
+3.  Contact impedance checks  or **"Z Checks"**, with the suffix `-Z` e.g. `S6-Z2.bdf` or `P11-Z4.bdf`. Which injected current on neighbouring pairs of electrodes to estiamte the contact impedance during electrode application.
 
 #### 1. Multi-Frequency datasets
 
 #### 2. Time Difference datasets
+These recordings used the same injection protocol as the "Multi-Frequency" recordings, with only 3 frequencies: 200, 1200 2000 Hz.
+
+`ScouseTom_Load('./Patients/Patient_17/P17_TD1.bdf');` which saves a `.mat` file `FNAME-BV.mat`, which (for this example) can be loaded through the command:
+
+`load('./Patients/Patient_17/P17_TD1-BV.mat')`. The results of which can be plotted using `subplot(3,1,1);plot(BV{1});subplot(3,1,2);plot(BV{2});subplot(3,1,3);plot(BV{3});xlabel('Measurment');ylabel('|V| uV');`
+
+![Time_difference_1](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/TD_1.png)
+
 
 #### 3. Contact Impedance Checks
 To estimate the contact impedance at the electrode sites, a separate measurement protocol was used. This injected between all adjacent pairs of electrodes, in the same manner as the UCH Mk.2.5 system used in previous stroke studies [10.1088/0967-3334/27/5/S13](10.1088/0967-3334/27/5/S13).
@@ -51,31 +58,31 @@ Unlike the other data types, there is no accompanying log files, as every file u
 
 These can be processed using the following:
 
-`ScouseTom_LoadZ('./Patients/Patient_09/P9_Z1.bdf')`
+`ScouseTom_Load('./Patients/Patient_09/P9_Z1.bdf')`
 This shows an initial contact impedance check where electrodes 3,4,8,9,26,29 were too high. Prompting a reabrasion of the electrode site.
 
 ![Zcheck1](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/Zchk_1.png)
 
-`ScouseTom_LoadZ('./Patients/Patient_09/P9_Z6.bdf')`
+`ScouseTom_Load('./Patients/Patient_09/P9_Z6.bdf')`
 Shows the impedance at the end of the experiment where some have drifted over time, but none above the max Z level.
 
 ![Zcheck2](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/Zchk_2.png)
 
 
-### Demodulation
+###
 The `.bdf` files contain
 
 Individual files can be demodulated like this
 ```
-ScouseTom_LoadBV('./Subjects/Subject_01a/S1a_TD1.bdf')
+ScouseTom_Load('./Subjects/Subject_01a/S1a_TD1.bdf')
 ```
 
-or by calling `ScouseTom_LoadBV` without any arguments and selecting a file.
+or by calling `ScouseTom_Load` without any arguments and selecting a file.
 
 -----
-All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
+
 
 #### Batch Processing
-
+All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
 
 #### Contact Impedance
