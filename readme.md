@@ -33,10 +33,10 @@ The `.bdf` files contain
 
 Individual files can be demodulated like this
 ```
-ScouseTom_LoadBV('./Subjects/Subject_01a/S1a_TD1.bdf')
+ScouseTom_Load('./Subjects/Subject_01a/S1a_TD1.bdf')
 ```
 
-or by calling `ScouseTom_LoadBV` without any arguments and selecting a file.
+or by calling `ScouseTom_Load` without any arguments and selecting a file.
 
 -----
 All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
