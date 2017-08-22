@@ -16,6 +16,11 @@ All processing steps are covered in the _processing_ section below
 
 So for example, to plot the full spectrum data for patient 7: `plot(EIT(7).BV)`
 
+
+Add example here
+
+
+
 ## Raw data files
 The raw `.bdf` files are available should you wish to recreate or alter the processing of this dataset. In total the dataset is **~150GB**, and is thus split into parts based on the Zenodo 50 GB file limit.  Please download the following zip files and extract them into the corresponding folders.
 
@@ -29,7 +34,7 @@ Example structures for these directories are given in the readmes.
 The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data). Please ensure you follow the installation instructions there, and verify the example datasets load correctly.
 
 The processing is done in two separate parts:
-1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase.
+1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase - uses the function `ScouseTom_Load` from [Load_data](https://github.com/EIT-team/Load_data).
 2. **Correction** and extraction of real component - these are the form necessary for reconstruction. Correction for the BioSemi gain and the changing injected current amplitude.
 
 ## Data types - Demodulation
@@ -37,7 +42,14 @@ For each subject and patient, there are three types of recordings:
 
 1.  Full spectrum **"Multi-Frequency"** datasets. These have the `-MF` suffix, e.g. `S1a_MF1.bdf` or `P6-MF2.bdf`. This used a 31 injection pair protocol With 17 frequencies and 3 frames.
 2.  Reduced spectrum **"Time Difference"** datasets. These have the `-TD` suffix e.g. `S2b-TD1.bdf` or `P19-TD1.bdf`. This has only 3 frequencies but was repeated for 60 frames.
-3.  Contact impedance checks  or **"Z Checks"**, with the suffix `-Z` e.g. `S6-Z2.bdf` or `P11-Z4.bdf`. Which injected current on neighbouring pairs of electrodes to estiamte the contact impedance during electrode application.
+3.  Contact impedance checks  or **"Z Checks"**, with the suffix `-Z` e.g. `S6-Z2.bdf` or `P11-Z4.bdf`. Which injected current on neighbouring pairs of electrodes to estimate the contact impedance during electrode application.
+
+The `.bdf` files contain the voltage data and the status of the digital trigger channels. Individual files can be demodulated like this
+```
+ScouseTom_Load('./Subjects/Subject_01a/S1a_TD1.bdf')
+```
+or by calling `ScouseTom_Load` without any arguments and selecting a file.
+
 
 #### 1. Multi-Frequency datasets
 
@@ -69,20 +81,10 @@ Shows the impedance at the end of the experiment where some have drifted over ti
 ![Zcheck2](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/Zchk_2.png)
 
 
-###
-The `.bdf` files contain
-
-Individual files can be demodulated like this
-```
-ScouseTom_Load('./Subjects/Subject_01a/S1a_TD1.bdf')
-```
-
-or by calling `ScouseTom_Load` without any arguments and selecting a file.
 
 -----
-
 
 #### Batch Processing
 All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
 
-#### Contact Impedance
+To demodulate *all* patients and *all* subjects, you can use the function `Demodulate_all.m` which is located in this directory.
