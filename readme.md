@@ -40,11 +40,11 @@ The processing is done in two separate parts:
 ## Data types - Demodulation
 For each subject and patient, there are three types of recordings:
 
-1.  Full spectrum **"Multi-Frequency"** datasets. These have the `-MF` suffix, e.g. `S1a_MF1.bdf` or `P6-MF2.bdf`. This used a 31 injection pair protocol With 17 frequencies and 3 frames.
+1.  Full spectrum **"Multi-Frequency"** datasets. These have the `-MF` suffix, e.g. `S1a_MF1.bdf` or `P6-MF2.bdf`. This used a 31 injection pair protocol with 17 frequencies and 3 frames.
 2.  Reduced spectrum **"Time Difference"** datasets. These have the `-TD` suffix e.g. `S2b-TD1.bdf` or `P19-TD1.bdf`. This has only 3 frequencies but was repeated for 60 frames.
 3.  Contact impedance checks  or **"Z Checks"**, with the suffix `-Z` e.g. `S6-Z2.bdf` or `P11-Z4.bdf`. Which injected current on neighbouring pairs of electrodes to estimate the contact impedance during electrode application.
 
-The `.bdf` files contain the voltage data and the status of the digital trigger channels. Individual files can be demodulated like this
+The `.bdf` files contain the voltage data and the status of the digital trigger channels. Individual files can be demodulated like this:
 ```
 ScouseTom_Load('./Subjects/Subject_01a/S1a_TD1.bdf')
 ```
