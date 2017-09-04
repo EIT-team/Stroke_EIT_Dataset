@@ -31,7 +31,7 @@ The raw `.bdf` files are available should you wish to recreate or alter the proc
 Example structures for these directories are given in the readmes.
 
 ## Processing raw data
-The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data). Please ensure you follow the installation instructions there, and verify the example datasets load correctly.
+The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. **Add `/src` to the matlab path**
 
 The processing is done in two separate parts:
 1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase - uses the function `ScouseTom_Load` from [Load_data](https://github.com/EIT-team/Load_data).
@@ -51,19 +51,55 @@ ScouseTom_Load('./Subjects/Subject_01a/S1a_TD1.bdf')
 or by calling `ScouseTom_Load` without any arguments and selecting a file.
 
 #### 1. Multi-Frequency datasets
+These recordings used a 31 pair injection protocol, which was selected to maximise both the sensitivity inside the skull and the magnitude of the measured voltages ([desc here](http://dx.doi.org/10.1088/0967-3334/35/6/1051)). 17 frequencies were chosen to cover the range of the BioSemi and the expected contrast between healthy and stroke tissues. The full list is given below:
+
+| Freq (Hz) | Amp (uA) |
+|-----------|----------|
+| 5         | 45       |
+| 10        | 45       |
+| 20        | 45       |
+| 100       | 45       |
+| 200       | 90       |
+| 300       | 90       |
+| 400       | 90       |
+| 500       | 90       |
+| 600       | 90       |
+| 700       | 140      |
+| 800       | 140      |
+| 900       | 140      |
+| 1000      | 140      |
+| 1200      | 160      |
+| 1350      | 190      |
+| 1700      | 235      |
+| 2000      | 280      |
+
+The current amplitude varied across frequency in accordance with IEC60601 and previous experience in low frequency measurements on the head.
+
+To demodulate these recordings, call `ScouseTom_Load('./Patients/Patient_11/P11_MF1.bdf')` which saves a `.mat` file `FNAME-BV.mat` containing the demodulated voltages, as well as all other data relating to this dataset - EIT system setup, protocol, filtering parameters etc.
+
+To load and plot this data:
+```
+figure
+hold on
+for iFreq = 1:size(ExpSetup.Freq,1)
+    plot(mean(BV{iFreq}(keep_idx,:),2)) % keep_idx uses only channels
+end
+hold off
+xlabel('Measurement');
+ylabel('|V| uV')
+legend(num2str(ExpSetup.Freq),'Location','eastoutside')
+```
+![Multi_Freq_1](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/MF_1.png)
 
 #### 2. Time Difference datasets
-These recordings used the same injection protocol as the "Multi-Frequency" recordings, with only 3 frequencies: 200, 1200 2000 Hz.
-
-`ScouseTom_Load('./Patients/Patient_17/P17_TD1.bdf');` which saves a `.mat` file `FNAME-BV.mat`, which (for this example) can be loaded through the command:
-
-`load('./Patients/Patient_17/P17_TD1-BV.mat')`. The results of which can be plotted using `subplot(3,1,1);plot(BV{1});subplot(3,1,2);plot(BV{2});subplot(3,1,3);plot(BV{3});xlabel('Measurment');ylabel('|V| uV');`
+These recordings used the same injection protocol as the "Multi-Frequency" recordings, with only 3 frequencies: 200, 1200 2000 Hz. As with the MF dataset, use `ScouseTom_Load('./Patients/Patient_17/P17_TD1.bdf');` to create file `FNAME-BV.mat`, which (for this example) can be loaded through the command:
+`load('./Patients/Patient_17/P17_TD1-BV.mat')`.  You can plot these results like so: `subplot(3,1,1);plot(BV{1});subplot(3,1,2);plot(BV{2});subplot(3,1,3);plot(BV{3});xlabel('Measurement');ylabel('|V| uV');`
 
 ![Time_difference_1](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/TD_1.png)
 
 
 #### 3. Contact Impedance Checks
-To estimate the contact impedance at the electrode sites, a separate measurement protocol was used. This injected between all adjacent pairs of electrodes, in the same manner as the UCH Mk.2.5 system used in previous stroke studies [10.1088/0967-3334/27/5/S13](10.1088/0967-3334/27/5/S13).
+To estimate the contact impedance at the electrode sites, a separate measurement protocol was used. This injected between all adjacent pairs of electrodes, in the same manner as the UCH Mk.2.5 system used in [previous stroke studies ](http://dx.doi.org/10.1088/0967-3334/27/5/S13).
 
 Unlike the other data types, there is no accompanying log files, as every file uses the same protocol, injecting between consecutive neighbouring pairs `1-2,2-3,3-4...32-1` with a current of 1 kHz and 141 uA amplitude. The results of this are used as an indicator of the quality of the electrode contact. These were run repeatedly during electrode application until the contact was satisfactory. The final Z check (with the highest number) is run _after_ all other data collection, to give an estimate of the drift in contact impedance during the recording.
 
@@ -83,7 +119,7 @@ Shows the impedance at the end of the experiment where some have drifted over ti
 
 Once all the data has been demodulated, and the `FNAME-BV.mat` file is produced (or using the ones already included). The voltages need to be corrected for the BioSemi gain and the changing injected current due to IEC 60601 (see [system desc](http://dx.doi.org/10.3390/s17020280)).
 
-The process is the same for either a MF or TD dataset, and takes two steps:
+Assuming the `/src` directory is added to the matlab path. The process is the same for either a MF or TD dataset, and takes two steps:
 
 ```
 % correct for different gain across voltage
@@ -105,4 +141,6 @@ A complete example is given in `Process_single_dataset.m`. Which produces the fo
 #### Batch Processing - Demodulation
 All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
 
-To demodulate *all* patients and *all* subjects, you can use the function `Demodulate_all.m` which is located in this directory.
+To demodulate *all* patients and *all* subjects, you can use the function `Demodulate_all.m` which is located in this directory. **Warning this takes a long time! Bring a book!**
+
+#### Batch Processing -

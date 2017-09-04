@@ -5,8 +5,8 @@
 % THIS TAKES A LONG TIME ~ 10 hours (?)
 %
 % After this is performed, the next stage is to correct for the injected
-% current amplitude, BioSemi gain and to extract the real component. As
-% found in SOMETHING
+% current amplitude, BioSemi gain and to extract the real component. Shown
+% in Process_single_dataset.m
 
 
 %% Process Patients

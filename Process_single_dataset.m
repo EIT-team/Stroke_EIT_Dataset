@@ -1,7 +1,11 @@
 %% example processing of a single dataset
 
-% the files have already been demodulated - using either ScouseTom_Load or
-% by using Demodulate_all
+% the files have already been demodulated, using either ScouseTom_Load or
+% by using Demodulate_all, and now require correction and rejectio of bad
+% channels
+
+% uncomment to demodulate too
+%  ScouseTom_Load('./Patients/Patient_11/P11_MF1.bdf'); 
 
 % correct for different gain across voltage
 [BV, BVstruct]=normalise_dataset('./Patients/Patient_11/P11_MF1-BV.mat');
@@ -24,7 +28,6 @@ newylim=axis;
 newylim=newylim(3:4); % make y axis the same
 
 export_fig('./example_figures/MF_BV_cleaned.png','-r100');
-
 
 figure
 plot(BVstruct.ExpSetup.Freq,squeeze(BV(:,:,Chosen_frame))')
