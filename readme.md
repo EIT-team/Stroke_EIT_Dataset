@@ -35,9 +35,9 @@ The data were collected using the [UCL ScouseTom System](https://github.com/EIT-
 
 The processing is done in two separate parts:
 1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase - uses the function `ScouseTom_Load` from [Load_data](https://github.com/EIT-team/Load_data).
-2. **Correction** and extraction of real component - these are the form necessary for reconstruction. Correction for the BioSemi gain and the changing injected current amplitude.
+2. **Correction** and extraction of real component - these are the form necessary for reconstruction. Extraction of the real part and normalisation for BioSemi gain and injected current amplitude is performed using `normalised_dataset`. Subsequently, rejection of poor quality measurements is performed using `reject_channels`. Both of these functions are found in this repository and an example is given in `Process_single_dataset.m`.
 
-## Data types - Demodulation
+### Demodulation
 For each subject and patient, there are three types of recordings:
 
 1.  Full spectrum **"Multi-Frequency"** datasets. These have the `-MF` suffix, e.g. `S1a_MF1.bdf` or `P6-MF2.bdf`. This used a 31 injection pair protocol with 17 frequencies and 3 frames.
@@ -49,7 +49,6 @@ The `.bdf` files contain the voltage data and the status of the digital trigger 
 ScouseTom_Load('./Subjects/Subject_01a/S1a_TD1.bdf')
 ```
 or by calling `ScouseTom_Load` without any arguments and selecting a file.
-
 
 #### 1. Multi-Frequency datasets
 
@@ -80,11 +79,30 @@ Shows the impedance at the end of the experiment where some have drifted over ti
 
 ![Zcheck2](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/Zchk_2.png)
 
+### Correction and data rejection
+
+Once all the data has been demodulated, and the `FNAME-BV.mat` file is produced (or using the ones already included). The voltages need to be corrected for the BioSemi gain and the changing injected current due to IEC 60601 (see [system desc](http://dx.doi.org/10.3390/s17020280)).
+
+The process is the same for either a MF or TD dataset, and takes two steps:
+
+```
+% correct for different gain across voltage
+[BV, BVstruct]=normalise_dataset('./Patients/Patient_11/P11_MF1-BV.mat');
+%pick a single frame - normally the 2nd is preferred for the full spectrum MF datasets.
+[ BV_cleaned, chn_removed] = reject_channels( BV(:,:,2));
+```
+A complete example is given in `Process_single_dataset.m`. Which produces the following output:
+
+- The raw voltages, showing some measurements with unusually high magnitude ![RawMF](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/MF_BV_raw.png)
+
+- The cleaned voltages, with these channels removed
+![CleanedMF](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/MF_BV_cleaned.png)
+
 
 
 -----
 
-#### Batch Processing
+#### Batch Processing - Demodulation
 All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
 
 To demodulate *all* patients and *all* subjects, you can use the function `Demodulate_all.m` which is located in this directory.

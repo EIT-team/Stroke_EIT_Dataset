@@ -1,10 +1,12 @@
-function [ BV_corrected ] = normalise_dataset( IN )
+function [ BV_corrected, BVStruc] = normalise_dataset( IN )
 % [ BV_corrected ] = normalise_dataset( IN )
 % NORMALISE_DATASET Take the demodulated compltex voltages, output from
 % ScouseTom_Load, and extracts the real component and normalises the
 % voltages based on injected current and BioSemi gain
-%  Inputs - eiher path string to a -BV.mat or the BV structure
-%  Outputs - voltages in mV
+%  Input - eiher path string to a -BV.mat or the BV structure
+%  Outputs:
+% BV_corrected - voltages in mV
+% BVStruc - the structure stored in the -BV.mat file
 
 %% check input is path or structure
 
@@ -13,7 +15,6 @@ if ischar(IN)
 elseif isstruct(IN)
     BVStruc=IN;
 end
-
 
 %% Load important variables
 Amplitudes = BVStruc.ExpSetup.Amp; % amplitude in uA
@@ -25,7 +26,9 @@ repeats=BVStruc.ExpSetup.Repeats; % number of times protocol repeated
 
 % load biosemi gain
 load([mfilename('fullpath') '\..\..\resources\BioSemi_correction.mat']);
-%% Correct for
+%% Correct for differences across freq
+
+fprintf('Normalising voltages in file %s\n',BVStruc.info.eegfname);
 
 BV_corrected= NaN(size(keep_idx,2),size(BV,2),size(BV{1},2));
 
@@ -48,7 +51,4 @@ for iFrame= 1:repeats % for each frame (2-3)
     BV_corrected(:,:,iFrame)= BV_frame;
 end
 
-
-
 end
-
