@@ -1,7 +1,10 @@
 function [ BV_corrected ] = normalise_dataset( IN )
-%NORMALISE_DATASET Summary of this function goes here
-%   Detailed explanation goes here
-
+% [ BV_corrected ] = normalise_dataset( IN )
+% NORMALISE_DATASET Take the demodulated compltex voltages, output from
+% ScouseTom_Load, and extracts the real component and normalises the
+% voltages based on injected current and BioSemi gain
+%  Inputs - eiher path string to a -BV.mat or the BV structure
+%  Outputs - voltages in mV
 
 %% check input is path or structure
 
@@ -20,7 +23,7 @@ PhaseAngle=BVStruc.PhaseAngle; % phase angle in rad
 keep_idx=BVStruc.keep_idx; % indicies of non injecting channels
 repeats=BVStruc.ExpSetup.Repeats; % number of times protocol repeated
 
-% looad biosemi gain
+% load biosemi gain
 load([mfilename('fullpath') '\..\..\resources\BioSemi_correction.mat']);
 %% Correct for
 

@@ -1,4 +1,4 @@
-%% Process Subjects
+%% Create the representative dataset used in data rejection
 
 % find files in the Patient directory
 fld_subject = dir('..\Subjects\Subject*');
@@ -6,7 +6,7 @@ fld_subject = dir('..\Subjects\Subject*');
 %take only the directories
 fld_subject=fld_subject([fld_subject.isdir]);
 
-%best 10 recordings - through observation of the SNR
+%best 10 recordings - through observation of the SNR within recordings 
 good_recs = {'01b','02a','03b','04a','05a','06a','07a','08a','09a','10a'};
 good_frame=[3,2,2,2,2,2,2,2,1,1];
 
@@ -28,7 +28,7 @@ for iSubject = 1:fnum_subject
         BVtotal(:,:,iSubject)=squeeze(BVcur(:,:,good_frame(iSubject)));
     catch err
         fprintf(2, '%s\n', getReport(err, 'extended'));
-        fprintf(2, ' Error in processing folder %s\n',fld_subject(iSubject).name);
+        fprintf(2, ' Error in processing file %s\n',fld_subject(iSubject).name);
     end
     
 end
