@@ -7,7 +7,7 @@ function [ BV_cleaned, idx_removed ] = reject_channels( BVin )
 % BV_cleaned - The voltages with nans replacing rejected measurements
 % idx_removed - cell array of measurements removed per frame
 
-
+%%
 % get the reference dataset used to reject bad channels
 load([mfilename('fullpath') '\..\..\resources\Average_Healthy.mat']);
 
