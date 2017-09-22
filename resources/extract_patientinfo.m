@@ -113,7 +113,7 @@ end
 % save into the structure for later
 PatientInfo.name=Patient_fname;
 PatientInfo.frame_chosen=Patient_recnum;
-PatientInfo.StudyID=Patient_recnum;
+PatientInfo.StudyID=Patient_num;
 PatientInfo.classification=Patient_classification_full;
 PatientInfo.subclassification=Patient_subclassification;
 PatientInfo.diagnosis=Patient_diagnosis;
