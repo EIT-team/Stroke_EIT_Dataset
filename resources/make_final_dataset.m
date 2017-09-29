@@ -1,7 +1,16 @@
+% Create the final Stroke EIT dataset
+%
+% This file creates the final dataset, assuming the following have alread
+% been run:
+%   0 - extract_patientinfo - finds which patients belong to which group
+%   1 - Demodulate_all - convert the raw eeg data to boundary voltages
+%   2 - Average_healthy - find data rejection criteria
+%   
+%   The outputs of these functions are included in the repository already,
+%   so are only necessary if changes have been made to the processing. 
 
-
-
-
+% add directory where normalise_dataset and reject_channels are found
+addpath('../src'); %
 
 % load the data extracted from the patient summary
 load('PatientSubjectInfo');
@@ -11,6 +20,7 @@ for iRec = 1:SubjectsNum
     % load the data for this subject - accounting for the fact the
     % filenames could be MF1 or MF2
     dirname=dir([ '..' filesep 'Subjects' filesep SubjectInfo.name{iRec} filesep '*MF*-BV.mat']);
+    % load the data and extract real component
     [BV, BVstruct]=normalise_dataset([dirname.folder filesep dirname.name]); 
     % reject bad channels in this dataset
     [BV_cleaned, chn_removed] = reject_channels( BV(:,:,SubjectInfo.frame_chosen(iRec)));
@@ -27,19 +37,17 @@ for iRec = 1:SubjectsNum
     
 end
 
-% Patients_chosen=[6;9;11;12;15;16;17;18;19;20;23;24;25;26];
 %% Process the patient data
 PatientsNum=size(PatientInfo.StudyID,2);
-
 
 for iRec = 1:PatientsNum
     % load the data for this subject - accounting for the fact the
     % filenames could be MF1 or MF2
     dirname=dir([ '..' filesep 'Patients' filesep PatientInfo.name{iRec} filesep '*MF*-BV.mat']);
+    % load the data and extract real component
     [BV, BVstruct]=normalise_dataset([dirname.folder filesep dirname.name]); 
     % reject bad channels in this dataset
     [BV_cleaned, chn_removed] = reject_channels( BV(:,:,PatientInfo.frame_chosen(iRec)));
-    
     
     % Add the other data too
     EITDATA(iRec+SubjectsNum).NameTag=PatientInfo.name(iRec);
@@ -59,5 +67,5 @@ end
 EITSETTINGS.Freq = BVstruct.ExpSetup.Freq;
 EITSETTINGS.protocol= BVstruct.prt_full(BVstruct.keep_idx,:);
 
-save('../Stroke_EIT_Data','EITDATA','EITSETTINGS');
+save('../UCL_Stroke_EIT_Dataset','EITDATA','EITSETTINGS');
 

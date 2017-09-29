@@ -11,15 +11,14 @@ All processing steps are covered in the _processing_ section below
 
 
 ### Using processed dataset
+Load the dataset using `load('UCL_Stroke_EIT_Dataset.mat')`. The data is stored in the structure `EITDATA`, with relevant settings saved in `EITSETTINGS`.
 
-`UCL_EIT_Dataset.mat`
-
-So for example, to plot the full spectrum data for patient 7: `plot(EIT(7).BV)`
-
-
-Add example here
-
-
+So for example, to plot the full spectrum data for patient 7
+```
+plot(EITSETTINGS.Freq,EITDATA(7).VoltagesCleaned)
+xlabel('Frequency (Hz)');ylabel('Ampltiude (mv)');title('EIT Data in Patient 7');
+```
+![Ex_patient_7](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ex_p7.png)
 
 ## Raw data files
 The raw `.bdf` files are available should you wish to recreate or alter the processing of this dataset. In total the dataset is **~150GB**, and is thus split into parts based on the Zenodo 50 GB file limit.  Please download the following zip files and extract them into the corresponding folders.
@@ -31,11 +30,11 @@ The raw `.bdf` files are available should you wish to recreate or alter the proc
 Example structures for these directories are given in the readmes.
 
 ## Processing raw data
-The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. **Add `/src` to the matlab path**
+The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.999377.svg)](https://doi.org/10.5281/zenodo.999377). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. You may also find it easier to add `./src` from this repository to the Matlab path.
 
 The processing is done in two separate parts:
 1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase - uses the function `ScouseTom_Load` from [Load_data](https://github.com/EIT-team/Load_data).
-2. **Correction** and extraction of real component - these are the form necessary for reconstruction. Extraction of the real part and normalisation for BioSemi gain and injected current amplitude is performed using `normalised_dataset`. Subsequently, rejection of poor quality measurements is performed using `reject_channels`. Both of these functions are found in this repository and an example is given in `Process_single_dataset.m`.
+2. **Correction** and extraction of real component - these are the form necessary for reconstruction. Extraction of the real part and normalisation for BioSemi gain and injected current amplitude is performed using `normalised_dataset`. Subsequently, rejection of poor quality measurements is performed using `reject_channels`. Both of these functions are found in this repository and an example is given in `./resources/Process_single_dataset.m`.
 
 ### Demodulation
 For each subject and patient, there are three types of recordings:
@@ -134,13 +133,13 @@ A complete example is given in `Process_single_dataset.m`. Which produces the fo
 - The cleaned voltages, with these channels removed
 ![CleanedMF](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/MF_BV_cleaned.png)
 
-
-
 -----
 
 #### Batch Processing - Demodulation
 All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
 
-To demodulate *all* patients and *all* subjects, you can use the function `Demodulate_all.m` which is located in this directory. **Warning this takes a long time! Bring a book!**
+To demodulate *all* patients and *all* subjects, you can use the function `./resources/Demodulate_all.m` which is located in this directory. **Warning this takes a long time! Bring a book!**
 
-#### Batch Processing -
+#### Batch Processing - Correction and data rejection
+
+The final steps are given in `./resources/make_final_dataset.m`, which corrects each dataset in turn and creates the final data structures `EITDATA` and `EITSETTINGS` stored in `UCL_Stroke_EIT_Dataset.mat`.
