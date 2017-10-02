@@ -69,3 +69,19 @@ EITSETTINGS.protocol= BVstruct.prt_full(BVstruct.keep_idx,:);
 
 save('../UCL_Stroke_EIT_Dataset','EITDATA','EITSETTINGS');
 
+%% save as JSON file (MATLAB 2016b function)
+
+json_data{1}.json = jsonencode(EITDATA);
+json_data{1}.file = 'EITDATA.json';
+
+json_data{2}.json = jsonencode(EITSETTINGS);
+json_data{2}.file = 'EITSETTINGS.json';
+
+for i = 1:2
+    
+
+    fid = fopen(json_data{i}.file, 'wt');
+    fprintf(fid, json_data{i}.json);
+    fclose(fid);
+
+end
