@@ -5,14 +5,10 @@ An overview of EIT along with a more detailed description of the data collection
 
 This repository contains the already processed data ready for analysis or use in imaging or classification studies, as well as the code to process all of the raw voltages.
 
-## Processed dataset
+## Using Processed dataset
 
-All processing steps are covered in the _processing_ section below
+The processed data has been saved in JSON and MATLAB .mat formats. The steps to generate this data from the raw files is covered in the __Processsing Raw Data__ section.
 
-
-### Using processed dataset
-
-The processed data has been saved in JSON and MATLAB .mat formats.
 
 
 **MATLAB**
