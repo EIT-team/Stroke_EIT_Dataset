@@ -44,9 +44,10 @@ with open("EITSETTINGS.json") as json_file:
 
 Plotting data
 
+Python array indexing starts at 0 (so array index 0 is patient 1). To plot the data from Patient 7 (as for MATLAB example), use index 6:
 ```
 import matplotlib.pyplt as plt
-plt.plot(EITDATA[7]['VoltagesCleaned']
+plt.plot(EITDATA[6]['VoltagesCleaned']
 ```
 
 
