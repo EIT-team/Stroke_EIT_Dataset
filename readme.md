@@ -6,7 +6,6 @@ An overview of EIT along with a more detailed description of the data collection
 This repository contains the already processed data ready for analysis or use in imaging or classification studies, as well as the code to process all of the raw voltages.
 
 ## Processed dataset
-
 All processing steps are covered in the _processing_ section below
 
 
@@ -128,9 +127,9 @@ Assuming the `/src` directory is added to the matlab path. The process is the sa
 ```
 A complete example is given in `Process_single_dataset.m`. Which produces the following output:
 
-- The raw voltages, showing some measurements with unusually high magnitude ![RawMF](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/MF_BV_raw.png)
+-   The raw voltages, showing some measurements with unusually high magnitude ![RawMF](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/MF_BV_raw.png)
 
-- The cleaned voltages, with these channels removed
+-   The cleaned voltages, with these channels removed
 ![CleanedMF](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/MF_BV_cleaned.png)
 
 -----
@@ -138,8 +137,16 @@ A complete example is given in `Process_single_dataset.m`. Which produces the fo
 #### Batch Processing - Demodulation
 All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
 
-To demodulate *all* patients and *all* subjects, you can use the function `./resources/Demodulate_all.m` which is located in this directory. **Warning this takes a long time! Bring a book!**
+To demodulate _all_ patients and _all_ subjects, you can use the function `./resources/Demodulate_all.m` which is located in this directory. **Warning this takes a long time!**
 
 #### Batch Processing - Correction and data rejection
 
 The final steps are given in `./resources/make_final_dataset.m`, which corrects each dataset in turn and creates the final data structures `EITDATA` and `EITSETTINGS` stored in `UCL_Stroke_EIT_Dataset.mat`.
+
+-----
+
+## Example Mesh
+An example tetrahedral mesh is included in the `resources` folder, which is representative the of the type used in the UCL group in other [studies 10.1088/0967-3334/37/6/879]((http://dx.doi.org/10.3390/s17020280)). The electrode positions are given both as nominal X, Y, Z coordinates and in the [EEG 10-10 system](http://www.ncbi.nlm.nih.gov/pubmed/11275545).
+
+These can be visualised using the code `/resources/viewHASUMEHASHSAHDADHAD.m`
+![ExampleMesh](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ExampleMesh.png)
