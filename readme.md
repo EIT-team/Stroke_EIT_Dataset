@@ -5,11 +5,14 @@ An overview of EIT along with a more detailed description of the data collection
 
 This repository contains the already processed data ready for analysis or use in imaging or classification studies, as well as the code to process all of the raw voltages.
 
-## Processed dataset
-All processing steps are covered in the _processing_ section below
+## Using Processed dataset
+
+The processed data has been saved in JSON and MATLAB .mat formats. The steps to generate this data from the raw files is covered in the __Processsing Raw Data__ section.
 
 
-### Using processed dataset
+
+**MATLAB**
+
 Load the dataset using `load('UCL_Stroke_EIT_Dataset.mat')`. The data is stored in the structure `EITDATA`, with relevant settings saved in `EITSETTINGS`.
 
 So for example, to plot the full spectrum data for patient 7
@@ -18,6 +21,31 @@ plot(EITSETTINGS.Freq,EITDATA(7).VoltagesCleaned)
 xlabel('Frequency (Hz)');ylabel('Ampltiude (mv)');title('EIT Data in Patient 7');
 ```
 ![Ex_patient_7](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ex_p7.png)
+
+
+**Python (JSON data)**
+
+Loading data
+
+```
+import json
+
+with open ("EITDATA.json") as json_file:
+    EITDATA = json.load(json_file)
+    
+with open("EITSETTINGS.json") as json_file:
+    EITSETTINGS = json.load(json_file)
+```
+
+
+Plotting data
+
+Python array indexing starts at 0 (so array index 0 is patient 1). To plot the data from Patient 7 (as for MATLAB example), use index 6:
+```
+import matplotlib.pyplt as plt
+plt.plot(EITDATA[6]['VoltagesCleaned']
+```
+
 
 ## Raw data files
 The raw `.bdf` files are available should you wish to recreate or alter the processing of this dataset. In total the dataset is **~150GB**, and is thus split into parts based on the Zenodo 50 GB file limit.  Please download the following zip files and extract them into the corresponding folders.
