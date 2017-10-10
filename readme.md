@@ -9,9 +9,7 @@ This repository contains the already processed data ready for analysis or use in
 
 The processed data has been saved in JSON and MATLAB .mat formats. The steps to generate this data from the raw files is covered in the __Processsing Raw Data__ section.
 
-
-
-**MATLAB**
+##### MATLAB
 
 Load the dataset using `load('UCL_Stroke_EIT_Dataset.mat')`. The data is stored in the structure `EITDATA`, with relevant settings saved in `EITSETTINGS`.
 
@@ -23,7 +21,7 @@ xlabel('Frequency (Hz)');ylabel('Ampltiude (mv)');title('EIT Data in Patient 7')
 ![Ex_patient_7](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ex_p7.png)
 
 
-**Python (JSON data)**
+##### Python (JSON data)
 
 Loading data
 
@@ -32,7 +30,7 @@ import json
 
 with open ("EITDATA.json") as json_file:
     EITDATA = json.load(json_file)
-    
+
 with open("EITSETTINGS.json") as json_file:
     EITSETTINGS = json.load(json_file)
 ```
@@ -168,13 +166,12 @@ All files for a given patient/subject can be processed using `ScouseTom_ProcessB
 To demodulate _all_ patients and _all_ subjects, you can use the function `./resources/Demodulate_all.m` which is located in this directory. **Warning this takes a long time!**
 
 #### Batch Processing - Correction and data rejection
-
 The final steps are given in `./resources/make_final_dataset.m`, which corrects each dataset in turn and creates the final data structures `EITDATA` and `EITSETTINGS` stored in `UCL_Stroke_EIT_Dataset.mat`.
 
 -----
 
-## Example Mesh
+## Example Mesh & Electrode coordinates
 An example tetrahedral mesh is included in the `resources` folder, which is representative the of the type used in the UCL group in other [studies 10.1088/0967-3334/37/6/879]((http://dx.doi.org/10.3390/s17020280)). The electrode positions are given both as nominal X, Y, Z coordinates and in the [EEG 10-10 system](http://www.ncbi.nlm.nih.gov/pubmed/11275545).
 
-These can be visualised using the code `/resources/viewHASUMEHASHSAHDADHAD.m`
+These can be visualised using the code `./resources/show_HASU_mesh.m`
 ![ExampleMesh](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ExampleMesh.png)
