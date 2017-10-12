@@ -1,7 +1,7 @@
 %% Create the Patient Summary info
 % this takes the info saved in the .csv and puts it together in the form
-% used in the .mat and json files. This doesnt need to be repeatedly run
-% unless the text tile is altered
+% used in the .mat and .json files. This doesnt need to be repeatedly run
+% unless the text file is altered
 
 %% Load the data in the textfile
 fileID = fopen('EIT_Patient_Summary.csv','r');

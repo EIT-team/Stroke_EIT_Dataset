@@ -1,6 +1,6 @@
 # UCLH EIT Dataset - Patients
 
-Extract all archives `Patient_01.zip,  Patient_02.zip ...Patient_26.zip` from [DOILINK](HERE) and [DOILINK](HERE) into this directory so the structure is:
+Extract all archives `Patient_01.zip,  Patient_02.zip ...Patient_26.zip` from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838176.svg)](https://doi.org/10.5281/zenodo.838176) and [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838184.svg)](https://doi.org/10.5281/zenodo.838184) into this directory so the structure is:
 ```
 |---Patient_01
 |   |---P1_MF1.bdf

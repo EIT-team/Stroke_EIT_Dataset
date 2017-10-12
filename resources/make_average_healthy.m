@@ -1,4 +1,6 @@
 %% Create the representative dataset used in data rejection
+%
+%This script assumes you have downloaded all of the subject datasets
 
 % find files in the Patient directory
 fld_subject = dir('..\Subjects\Subject*');
@@ -35,4 +37,4 @@ end
 
 Chn_ave=mean(BVtotal,3);
 
-save('Average_Healthy.mat','Chn_ave');
+% save('Average_Healthy.mat','Chn_ave');
