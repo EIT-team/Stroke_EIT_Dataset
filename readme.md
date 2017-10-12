@@ -48,14 +48,16 @@ plt.plot(EITDATA[6]['VoltagesCleaned']
 ## Raw data files
 The raw `.bdf` files are available should you wish to recreate or alter the processing of this dataset. In total the dataset is **~150GB**, and is thus split into parts based on the Zenodo 50 GB file limit.  Please download the following zip files and extract them into the corresponding folders.
 
--   Subject data:  DOI [10.5281/zenodo.836842](10.5281/zenodo.836842) into the ./Subjects folder
--   Patient data (part 1): DOI [10.5281/zenodo.838176](10.5281/zenodo.838176) into the ./Patients folder
--   Patient data (part 2): DOI [10.5281/zenodo.838184](10.5281/zenodo.838184) into the ./Patients folder
+-   Subject data:  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.836842.svg)](https://doi.org/10.5281/zenodo.836842)  into the `./Subjects` folder
+-   Patient data (part 1): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838176.svg)](https://doi.org/10.5281/zenodo.838176)  into the `./Patients` folder
+-   Patient data (part 2): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838184.svg)](https://doi.org/10.5281/zenodo.838184)  into the `./Patients` folder
+ -   Radiology data:  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838705.svg)](https://doi.org/10.5281/zenodo.838705)  into the `./Anonymised_Radiology` folder
 
 Example structures for these directories are given in the readmes.
 
 ## Processing raw data
-The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.999377.svg)](https://doi.org/10.5281/zenodo.999377). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. You may also find it easier to add `./src` from this repository to the Matlab path.
+The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom) [![DOI](https://zenodo.org/badge/33936009.svg)](https://zenodo.org/badge/latestdoi/33936009)
+. All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data) [![DOI](https://zenodo.org/badge/39774657.svg)](https://zenodo.org/badge/latestdoi/39774657). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. You may also find it easier to add `./src` from this repository to the Matlab path.
 
 The processing is done in two separate parts:
 1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase - uses the function `ScouseTom_Load` from [Load_data](https://github.com/EIT-team/Load_data).
@@ -171,7 +173,7 @@ The final steps are given in `./resources/make_final_dataset.m`, which corrects 
 -----
 
 ## Example Mesh & Electrode coordinates
-An example tetrahedral mesh is included in the `resources` folder, which is representative the of the type used in the UCL group in other [studies 10.1088/0967-3334/37/6/879]((http://dx.doi.org/10.3390/s17020280)). The electrode positions are given both as nominal X, Y, Z coordinates and in the [EEG 10-10 system](http://www.ncbi.nlm.nih.gov/pubmed/11275545).
+An example tetrahedral mesh is included in the `resources` folder, which is representative the of the type used in the UCL group in other [studies](http://dx.doi.org/10.3390/s17020280). The electrode positions are given both as nominal X, Y, Z coordinates and in the [EEG 10-10 system](http://www.ncbi.nlm.nih.gov/pubmed/11275545).
 
 These can be visualised using the code `./resources/show_HASU_mesh.m`
 ![ExampleMesh](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ExampleMesh.png)
