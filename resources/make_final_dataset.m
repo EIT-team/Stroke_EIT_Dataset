@@ -26,14 +26,15 @@ for iRec = 1:SubjectsNum
     [BV_cleaned, chn_removed] = reject_channels( BV(:,:,SubjectInfo.frame_chosen(iRec)));
     
     % Add the other data too
-    EITDATA(iRec).NameTag=SubjectInfo.name(iRec);
-    EITDATA(iRec).Classification=SubjectInfo.classification(iRec);
+    EITDATA(iRec).NameTag=SubjectInfo.name{iRec};
+    EITDATA(iRec).Classification=SubjectInfo.classification{iRec};
+    EITDATA(iRec).SubClassification=SubjectInfo.classification{iRec};
     EITDATA(iRec).VoltagesCleaned=BV_cleaned;
     EITDATA(iRec).VoltagesFull=BV(:,:,SubjectInfo.frame_chosen(iRec));
     EITDATA(iRec).RemovedChannels=chn_removed;
-    EITDATA(iRec).Diagnosis=SubjectInfo.classification(iRec);
+    EITDATA(iRec).Diagnosis=SubjectInfo.classification{iRec};
     EITDATA(iRec).StudyID=SubjectInfo.StudyID(iRec);
-    EITDATA(iRec).Comments=SubjectInfo.comments(iRec);
+    EITDATA(iRec).Comments=SubjectInfo.comments{iRec};
     
 end
 
@@ -50,15 +51,15 @@ for iRec = 1:PatientsNum
     [BV_cleaned, chn_removed] = reject_channels( BV(:,:,PatientInfo.frame_chosen(iRec)));
     
     % Add the other data too
-    EITDATA(iRec+SubjectsNum).NameTag=PatientInfo.name(iRec);
-    EITDATA(iRec+SubjectsNum).Classification=PatientInfo.classification(iRec);
-    EITDATA(iRec+SubjectsNum).SubClassification=PatientInfo.subclassification(iRec);
+    EITDATA(iRec+SubjectsNum).NameTag=PatientInfo.name{iRec};
+    EITDATA(iRec+SubjectsNum).Classification=PatientInfo.classification{iRec};
+    EITDATA(iRec+SubjectsNum).SubClassification=PatientInfo.subclassification{iRec};
     EITDATA(iRec+SubjectsNum).VoltagesCleaned=BV_cleaned;
     EITDATA(iRec+SubjectsNum).VoltagesFull=BV(:,:,PatientInfo.frame_chosen(iRec));
     EITDATA(iRec+SubjectsNum).RemovedChannels=chn_removed;
-    EITDATA(iRec+SubjectsNum).Diagnosis=PatientInfo.diagnosis(iRec);
+    EITDATA(iRec+SubjectsNum).Diagnosis=PatientInfo.diagnosis{iRec};
     EITDATA(iRec+SubjectsNum).StudyID=PatientInfo.StudyID(iRec);
-    EITDATA(iRec+SubjectsNum).Comments=PatientInfo.comments(iRec);
+    EITDATA(iRec+SubjectsNum).Comments=PatientInfo.comments{iRec};
     
 end
 
@@ -78,8 +79,6 @@ json_data{2}.json = jsonencode(EITSETTINGS);
 json_data{2}.file = 'EITSETTINGS.json';
 
 for i = 1:2
-    
-
     fid = fopen(json_data{i}.file, 'wt');
     fprintf(fid, json_data{i}.json);
     fclose(fid);
