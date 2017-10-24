@@ -56,8 +56,8 @@ The raw `.bdf` files are available should you wish to recreate or alter the proc
 Example structures for these directories are given in the readmes.
 
 ## Processing raw data
-The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom) [![DOI](https://zenodo.org/badge/33936009.svg)](https://zenodo.org/badge/latestdoi/33936009)
-. All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data) [![DOI](https://zenodo.org/badge/39774657.svg)](https://zenodo.org/badge/latestdoi/39774657). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. You may also find it easier to add `./src` from this repository to the Matlab path.
+The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom) archived at  [![DOI](https://zenodo.org/badge/33936009.svg)](https://zenodo.org/badge/latestdoi/33936009)
+. All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data) archived at [![DOI](https://zenodo.org/badge/39774657.svg)](https://zenodo.org/badge/latestdoi/39774657). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. You may also find it easier to add `./src` from this repository to the Matlab path.
 
 The processing is done in two separate parts:
 1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase - uses the function `ScouseTom_Load` from [Load_data](https://github.com/EIT-team/Load_data).
