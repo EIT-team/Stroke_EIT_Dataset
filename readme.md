@@ -1,7 +1,7 @@
 # UCLH Stroke EIT Dataset
 This Multifrequency Electrical Impedance Tomography (EIT) data was collected as part of clinical trial in collaboration with the Hyper Acute Stroke unit (HASU) at University College London Hospital (UCLH).
 
-An overview of EIT along with a more detailed description of the data collection methodology and clinical context is given in the accompanying publication [HERE BROKEN LINK](badbad).
+An overview of EIT along with a more detailed description of the data collection methodology and clinical context is given in the accompanying [publication](missinglink).
 
 This repository contains the already processed data ready for analysis or use in imaging or classification studies, as well as the code to process all of the raw voltages.
 
@@ -55,7 +55,7 @@ The raw `.bdf` files are available should you wish to recreate or alter the proc
 Example structures for these directories are given in the readmes.
 
 ## Processing raw data
-The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.999377.svg)](https://doi.org/10.5281/zenodo.999377). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. You may also find it easier to add `./src` from this repository to the Matlab path.
+The data were collected using the [UCL ScouseTom System](https://github.com/EIT-team/ScouseTom). All processing code is written in Matlab and is located in the [Load_data repository](https://github.com/EIT-team/Load_data) archived at [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.999377.svg)](https://doi.org/10.5281/zenodo.999377). Please ensure you follow the installation instructions there, and verify the example datasets load correctly. You may also find it easier to add `./src` from this repository to the Matlab path.
 
 The processing is done in two separate parts:
 1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase - uses the function `ScouseTom_Load` from [Load_data](https://github.com/EIT-team/Load_data).
@@ -171,7 +171,7 @@ The final steps are given in `./resources/make_final_dataset.m`, which corrects 
 -----
 
 ## Example Mesh & Electrode coordinates
-An example tetrahedral mesh is included in the `resources` folder, which is representative the of the type used in the UCL group in other [studies 10.1088/0967-3334/37/6/879]((http://dx.doi.org/10.3390/s17020280)). The electrode positions are given both as nominal X, Y, Z coordinates and in the [EEG 10-10 system](http://www.ncbi.nlm.nih.gov/pubmed/11275545).
+An example tetrahedral mesh is included in the `resources` folder, which is representative the of the type used in the UCL group in other [studies]((http://dx.doi.org/10.3390/s17020280)). The electrode positions are given both as nominal X, Y, Z coordinates and in the [EEG 10-10 system](http://www.ncbi.nlm.nih.gov/pubmed/11275545).
 
 These can be visualised using the code `./resources/show_HASU_mesh.m`
 ![ExampleMesh](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ExampleMesh.png)
