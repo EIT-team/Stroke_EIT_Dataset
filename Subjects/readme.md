@@ -1,6 +1,6 @@
 # UCLH EIT Dataset - Subjects
 
-Extract all archives `Subject_01.zip, Subject_02.zip...Subject_10.zip` from [DOILINK](HERE) into this directory so the structure is:
+Extract all archives `Subject_01.zip, Subject_02.zip...Subject_10.zip` from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.836842.svg)](https://doi.org/10.5281/zenodo.836842)  into this directory so the structure is:
 ```
 |---Subject_01a
 |   |---S1a_MF1.bdf

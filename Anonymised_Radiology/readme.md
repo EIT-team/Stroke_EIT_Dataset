@@ -2,7 +2,7 @@
 
 ## Usage
 
-Extract all archives `Patient_Reports_01.zip,  Patient_Reports_02.zip ...Patient_Reports_26.zip` from [10.5281/zenodo.838705](10.5281/zenodo.838705) into this directory so the structure is:
+Extract all archives `Patient_Reports_01.zip,  Patient_Reports_02.zip ...Patient_Reports_26.zip` from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838705.svg)](https://doi.org/10.5281/zenodo.838705) into this directory so the structure is:
 
 ```
 |---P_01
@@ -28,4 +28,4 @@ Extract all archives `Patient_Reports_01.zip,  Patient_Reports_02.zip ...Patient
 ...
 ```
 
-Inside each folder is a `.pdf` containing the radiologists report. Along with the CT and MRI scans in DICOM format. 
+Inside each folder is a `.pdf` containing the radiologists report. Along with the CT and MRI scans in DICOM format.

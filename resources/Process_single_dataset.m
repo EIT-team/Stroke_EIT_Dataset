@@ -1,8 +1,8 @@
 %% example processing of a single dataset
 
-% the files have already been demodulated, using either ScouseTom_Load or
-% by using Demodulate_all, and now require correction and rejectio of bad
-% channels
+% This is assuming the files have already been demodulated, using either
+% ScouseTom_Load or by using Demodulate_all, and now require correction and
+% rejection of bad channels
 
 % uncomment to demodulate too
 %  ScouseTom_Load('./Patients/Patient_11/P11_MF1.bdf'); 
