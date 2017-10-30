@@ -177,3 +177,14 @@ An example tetrahedral mesh is included in the `resources` folder, which is repr
 
 These can be visualised using the code `./resources/show_HASU_mesh.m`
 ![ExampleMesh](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ExampleMesh.png)
+
+## EEG Extraction
+The portions of the dataset before and after EIT injection contain only EEG signals, which can be extracted through the use of `Extract_EEG.m`. This requires the raw data.
+
+For example, to plot a segment of the EEG data at the beginning of the file
+```
+EEG=Extract_EEG('Subjects\Subject_06b\S6b_MF1.bdf');
+plot(EEG.t_start,EEG.data_start(:,5)); xlim([1 1.5])
+title('Example EEG data'); xlabel('Time (s)'); ylabel('Voltage (uV)')
+```
+![ExampleEEG](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ex_eeg.png)
