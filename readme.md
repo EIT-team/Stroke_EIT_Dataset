@@ -7,7 +7,7 @@ This repository contains the already processed data ready for analysis or use in
 
 ## Using Processed dataset
 
-The processed data has been saved in JSON and MATLAB .mat formats. The steps to generate this data from the raw files is covered in the __Processsing Raw Data__ section.
+The processed data has been saved in JSON and MATLAB .mat formats. The steps to generate this data from the raw files is covered in the __Processing Raw Data__ section.
 
 ##### MATLAB
 
@@ -145,7 +145,7 @@ Shows the impedance at the end of the experiment where some have drifted over ti
 
 Once all the data has been demodulated, and the `FNAME-BV.mat` file is produced (or using the ones already included). The voltages need to be corrected for the BioSemi gain and the changing injected current due to IEC 60601 (see [system desc](http://dx.doi.org/10.3390/s17020280)).
 
-Assuming the `/src` directory is added to the matlab path. The process is the same for either a MF or TD dataset, and takes two steps:
+Assuming the `/src` directory is added to the Matlab path. The process is the same for either a MF or TD dataset, and takes two steps:
 
 ```
 % correct for different gain across voltage
