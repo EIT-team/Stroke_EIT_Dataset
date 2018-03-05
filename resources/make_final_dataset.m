@@ -1,9 +1,9 @@
 % Create the final Stroke EIT dataset
 %
-% This file creates the final dataset, assuming the following have alread
+% This file creates the final dataset, assuming the following have already
 % been run:
 %   0 - extract_patientinfo - finds which patients belong to which group
-%   1 - Demodulate_all - convert the raw eeg data to boundary voltages
+%   1 - Demodulate_all - convert the raw eeg system data to EIT boundary voltages
 %   2 - Average_healthy - find data rejection criteria
 %   
 %   The outputs of these functions are included in the repository already,
