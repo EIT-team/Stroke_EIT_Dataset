@@ -65,8 +65,11 @@ end
 
 %% save some relevant EIT settings
 
+load('Mesh_example.mat');
+
 EITSETTINGS.Freq = BVstruct.ExpSetup.Freq;
-EITSETTINGS.protocol= BVstruct.prt_full(BVstruct.keep_idx,:);
+EITSETTINGS.Protocol= BVstruct.prt_full(BVstruct.keep_idx,:);
+EITSETTINGS.ElectrodePosition=Mesh.elec_pos; 
 
 save('../UCL_Stroke_EIT_Dataset','EITDATA','EITSETTINGS');
 

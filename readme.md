@@ -7,7 +7,7 @@ This repository contains the already processed data ready for analysis or use in
 
 ## Using Processed dataset
 
-The processed data has been saved in JSON and MATLAB .mat formats. The steps to generate this data from the raw files is covered in the __Processsing Raw Data__ section.
+The processed data has been saved in JSON and MATLAB .mat formats. The steps to generate this data from the raw files is covered in the __Processing Raw Data__ section.
 
 ##### MATLAB
 
@@ -145,7 +145,7 @@ Shows the impedance at the end of the experiment where some have drifted over ti
 
 Once all the data has been demodulated, and the `FNAME-BV.mat` file is produced (or using the ones already included). The voltages need to be corrected for the BioSemi gain and the changing injected current due to IEC 60601 (see [system desc](http://dx.doi.org/10.3390/s17020280)).
 
-Assuming the `/src` directory is added to the matlab path. The process is the same for either a MF or TD dataset, and takes two steps:
+Assuming the `/src` directory is added to the Matlab path. The process is the same for either a MF or TD dataset, and takes two steps:
 
 ```
 % correct for different gain across voltage
@@ -177,3 +177,17 @@ An example tetrahedral mesh is included in the `resources` folder, which is repr
 
 These can be visualised using the code `./resources/show_HASU_mesh.m`
 ![ExampleMesh](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ExampleMesh.png)
+
+## EEG Extraction
+The portions of the dataset before and after EIT injection contain only EEG signals, which can be extracted through the use of `Extract_EEG.m`. This requires the raw data.
+
+For example, to plot a segment of the EEG data at the beginning of the file
+```
+EEG=Extract_EEG('Subjects\Subject_06b\S6b_MF1.bdf');
+plot(EEG.t_start,EEG.data_start(:,5)); xlim([1 1.5])
+title('Example EEG data'); xlabel('Time (s)'); ylabel('Voltage (uV)')
+```
+![ExampleEEG](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ex_eeg.png)
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
