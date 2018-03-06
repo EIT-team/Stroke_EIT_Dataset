@@ -85,5 +85,4 @@ for i = 1:2
     fid = fopen(json_data{i}.file, 'wt');
     fprintf(fid, json_data{i}.json);
     fclose(fid);
-
 end

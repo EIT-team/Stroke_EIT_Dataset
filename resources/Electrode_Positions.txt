@@ -31,3 +31,4 @@ Electrode Number	EEG 10-10 Equivalent
 30	I2/O10
 31	I1/O9
 32	Oz
+33	NFpz
