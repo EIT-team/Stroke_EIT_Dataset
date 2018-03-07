@@ -1,33 +1,34 @@
-Channel	Sampling Rate	Low Pass	High Pass	Notes
-1	16384	N/A	N/A	
-2	16384	N/A	N/A	
-3	16384	N/A	N/A	
-4	16384	N/A	N/A	
-5	16384	N/A	N/A	
-6	16384	N/A	N/A	
-7	16384	N/A	N/A	
-8	16384	N/A	N/A	
-9	16384	N/A	N/A	
-10	16384	N/A	N/A	
-11	16384	N/A	N/A	
-12	16384	N/A	N/A	
-13	16384	N/A	N/A	
-14	16384	N/A	N/A	
-15	16384	N/A	N/A	
-16	16384	N/A	N/A	
-17	16384	N/A	N/A	
-18	16384	N/A	N/A	
-19	16384	N/A	N/A	
-20	16384	N/A	N/A	
-21	16384	N/A	N/A	
-22	16384	N/A	N/A	
-23	16384	N/A	N/A	
-24	16384	N/A	N/A	
-25	16384	N/A	N/A	
-26	16384	N/A	N/A	
-27	16384	N/A	N/A	
-28	16384	N/A	N/A	
-29	16384	N/A	N/A	
-30	16384	N/A	N/A	
-31	16384	N/A	N/A	
-32	16384	N/A	N/A	
+name	type	description	sampling_rate	low_cutoff	high_cutoff
+FP2	EEG/EIT	electrode	16384	0	0
+FP1	EEG/EIT	electrode	16384	0	0
+F8	EEG/EIT	electrode	16384	0	0
+F4	EEG/EIT	electrode	16384	0	0
+Fz	EEG/EIT	electrode	16384	0	0
+F3	EEG/EIT	electrode	16384	0	0
+F7	EEG/EIT	electrode	16384	0	0
+FC6	EEG/EIT	electrode	16384	0	0
+FC2	EEG/EIT	electrode	16384	0	0
+FC1	EEG/EIT	electrode	16384	0	0
+FC5	EEG/EIT	electrode	16384	0	0
+T8	EEG/EIT	electrode	16384	0	0
+C4	EEG/EIT	electrode	16384	0	0
+CZ	EEG/EIT	electrode	16384	0	0
+C3	EEG/EIT	electrode	16384	0	0
+T7	EEG/EIT	electrode	16384	0	0
+TP10	EEG/EIT	electrode	16384	0	0
+CP6	EEG/EIT	electrode	16384	0	0
+CP2	EEG/EIT	electrode	16384	0	0
+CP1	EEG/EIT	electrode	16384	0	0
+CP5	EEG/EIT	electrode	16384	0	0
+TP9	EEG/EIT	electrode	16384	0	0
+P4	EEG/EIT	electrode	16384	0	0
+Pz	EEG/EIT	electrode	16384	0	0
+P3	EEG/EIT	electrode	16384	0	0
+P8	EEG/EIT	electrode	16384	0	0
+PO4	EEG/EIT	electrode	16384	0	0
+PO3	EEG/EIT	electrode	16384	0	0
+P7	EEG/EIT	electrode	16384	0	0
+I2/O10	EEG/EIT	electrode	16384	0	0
+I1/O9	EEG/EIT	electrode	16384	0	0
+Oz	EEG/EIT	electrode	16384	0	0
+STATUS	TRIG	Digital Triggers See ScouseTom EIT system desc.	16384	0	0

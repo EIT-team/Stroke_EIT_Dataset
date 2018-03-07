@@ -1,4 +1,4 @@
-Name	X	Y	Z	Type	Material
+name	x	y	z	type	material
 FP2	0.101412	0.042578	0.131065	EasyCap	Ag/AgCl
 FP1	0.151292	0.041441	0.130196	EasyCap	Ag/AgCl
 F8	0.072204	0.070328	0.131346	EasyCap	Ag/AgCl

@@ -81,8 +81,8 @@ json_data{1}.file = 'EITDATA.json';
 json_data{2}.json = jsonencode(EITSETTINGS);
 json_data{2}.file = 'EITSETTINGS.json';
 
-for i = 1:2
-    fid = fopen(json_data{i}.file, 'wt');
-    fprintf(fid, json_data{i}.json);
+for iFile = 1:2
+    fid = fopen(json_data{iFile}.file, 'wt');
+    fprintf(fid, json_data{iFile}.json);
     fclose(fid);
 end
