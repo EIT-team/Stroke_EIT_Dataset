@@ -1,4 +1,4 @@
-name	type	description	sampling_rate	low_cutoff	high_cutoff
+particap	type	description	sampling_rate	low_cutoff	high_cutoff
 FP2	EEG/EIT	electrode	16384	0	0
 FP1	EEG/EIT	electrode	16384	0	0
 F8	EEG/EIT	electrode	16384	0	0
