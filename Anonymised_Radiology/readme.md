@@ -2,27 +2,19 @@
 
 ## Usage
 
-Extract all archives `Patient_Reports_01.zip,  Patient_Reports_02.zip ...Patient_Reports_26.zip` from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838705.svg)](https://doi.org/10.5281/zenodo.838705) into this directory so the structure is:
+Extract all archives `Patient_Reports_01.zip,  Patient_Reports_02.zip ...Patient_Reports_26.zip` from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199641.svg)](https://doi.org/10.5281/zenodo.1199641) into this directory so the structure is:
 
 ```
 |---P_01
-|   |---20160504 192137 [ - CT Acute Stroke]
-|   |   |---Series 001 [CT - 2 0]
-|   |   |---Series 003 [CT - Thick Brain 5 0 Head Brain FC21]
-|   |   |...
-|   |---20160505 102132 [ - MR Head]
-|   |   |---Series 201 [MR - DTI P6d noniso]
-|   |   |---Series 202 [MR - isoDWI b1000 iso]
+|   |---func
+|   |   |---sub-01_CT_Plain_Brain_Stroke.json
+|   |   |---sub-01_CT_Plain_Brain_Stroke.nii.gz
 |   |   |...
 |   |---Patient01.pdf
 |---P_03
-|   |---20160510 152102 [ - CT Acute Stroke]
-|   |   |---Series 001 [CT - 2 0]
-|   |   |---Series 003 [CT - Thick Brain 5 0 Head Brain FC21]
-|   |   |...
-|   |---20160511 090538 [ - MR Head]
-|   |   |---Series 201 [MR - DTI P6d noniso]
-|   |   |---Series 202 [MR - isoDWI b1000 iso]
+|   |---func
+|   |   |---sub-03_CT_Plain_Brain_(Stroke).json
+|   |   |---sub-03_CT_Plain_Brain_(Stroke).nii.gz
 |   |   |...
 |   |---Patient03.pdf
 ...

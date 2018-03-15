@@ -48,10 +48,10 @@ plt.plot(EITDATA[6]['VoltagesCleaned']
 ## Raw data files
 The raw `.bdf` files are available should you wish to recreate or alter the processing of this dataset. In total the dataset is **~150GB**, and is thus split into parts based on the Zenodo 50 GB file limit.  Please download the following zip files and extract them into the corresponding folders.
 
--   Subject data:  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199523.svg)](https://doi.org/10.5281/zenodo.1199523)  into the `./Subjects` folder
+-   Subject data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199523.svg)](https://doi.org/10.5281/zenodo.1199523)  into the `./Subjects` folder
 -   Patient data (part 1): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199529.svg)](https://doi.org/10.5281/zenodo.1199529)  into the `./Patients` folder
--   Patient data (part 2): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838184.svg)](https://doi.org/10.5281/zenodo.838184)  into the `./Patients` folder
--   Radiology data:  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.838705.svg)](https://doi.org/10.5281/zenodo.838705)  into the `./Anonymised_Radiology` folder
+-   Patient data (part 2): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199630.svg)](https://doi.org/10.5281/zenodo.1199630)  into the `./Patients` folder
+-   Radiology data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199641.svg)](https://doi.org/10.5281/zenodo.1199641) into the `./Anonymised_Radiology` folder
 
 Example structures for these directories are given in the readmes.
 
