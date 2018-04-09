@@ -51,7 +51,7 @@ The raw `.bdf` files are available should you wish to recreate or alter the proc
 -   Subject data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199523.svg)](https://doi.org/10.5281/zenodo.1199523)  into the `./Subjects` folder
 -   Patient data (part 1): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199529.svg)](https://doi.org/10.5281/zenodo.1199529)  into the `./Patients` folder
 -   Patient data (part 2): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199630.svg)](https://doi.org/10.5281/zenodo.1199630)  into the `./Patients` folder
--   Radiology data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199641.svg)](https://doi.org/10.5281/zenodo.1199641) into the `./Anonymised_Radiology` folder
+-   Radiology data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1215676.svg)](https://doi.org/10.5281/zenodo.1215676) into the `./Anonymised_Radiology` folder
 
 Example structures for these directories are given in the readmes.
 

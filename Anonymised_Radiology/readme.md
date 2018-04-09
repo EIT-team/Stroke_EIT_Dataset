@@ -2,19 +2,19 @@
 
 ## Usage
 
-Extract all archives `Patient_Reports_01.zip,  Patient_Reports_02.zip ...Patient_Reports_26.zip` from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1199641.svg)](https://doi.org/10.5281/zenodo.1199641) into this directory so the structure is:
+Extract all archives `Patient_Reports_01.zip,  Patient_Reports_02.zip ...Patient_Reports_26.zip` from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1215676.svg)](https://doi.org/10.5281/zenodo.1215676) into this directory so the structure is:
 
 ```
-|---P_01
+|---pat-01
 |   |---func
-|   |   |---sub-01_CT_Plain_Brain_Stroke.json
-|   |   |---sub-01_CT_Plain_Brain_Stroke.nii.gz
+|   |   |---pat-01_CT_Plain_Brain_Stroke.json
+|   |   |---pat-01_CT_Plain_Brain_Stroke.nii.gz
 |   |   |...
 |   |---Patient01.pdf
-|---P_03
+|---pat-03
 |   |---func
-|   |   |---sub-03_CT_Plain_Brain_(Stroke).json
-|   |   |---sub-03_CT_Plain_Brain_(Stroke).nii.gz
+|   |   |---pat-03_CT_Plain_Brain_(Stroke).json
+|   |   |---pat-03_CT_Plain_Brain_(Stroke).nii.gz
 |   |   |...
 |   |---Patient03.pdf
 ...
