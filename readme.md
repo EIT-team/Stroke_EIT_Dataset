@@ -1,7 +1,7 @@
 # UCLH Stroke EIT Dataset
 This Multifrequency Electrical Impedance Tomography (EIT) data was collected as part of clinical trial in collaboration with the Hyper Acute Stroke unit (HASU) at University College London Hospital (UCLH).
 
-An overview of EIT along with a more detailed description of the data collection methodology and clinical context is given in the accompanying [publication](missinglink).
+An overview of EIT along with a more detailed description of the data collection methodology and clinical context is given in the accompanying [publication](https://doi.org/10.1038/sdata.2018.112).
 
 This repository contains the already processed data ready for analysis or use in imaging or classification studies, as well as the code to process all of the raw voltages.
 
@@ -188,6 +188,14 @@ plot(EEG.t_start,EEG.data_start(:,5)); xlim([1 1.5])
 title('Example EEG data'); xlabel('Time (s)'); ylabel('Voltage (uV)')
 ```
 ![ExampleEEG](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ex_eeg.png)
+
+
+## Citing this work
+Please use the corresponding publication to cite this data. 
+
+1. Goren, N. et al. Multi-frequency electrical impedance tomography and neuroimaging data in stroke patients. Sci. Data 5, 180112 (2018).
+
+Please raise an issue or add to the wiki if you are interested in using this data. We would like to hear from you!
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
