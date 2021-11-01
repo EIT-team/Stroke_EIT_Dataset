@@ -3,7 +3,7 @@
 %This script assumes you have downloaded all of the subject datasets
 
 % find files in the Patient directory
-fld_subject = dir('..\Subjects\Subject*');
+fld_subject = dir('../Subjects/Subject*');
 
 %take only the directories
 fld_subject=fld_subject([fld_subject.isdir]);

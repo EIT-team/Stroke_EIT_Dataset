@@ -25,7 +25,7 @@ keep_idx=BVStruc.keep_idx; % indicies of non injecting channels
 repeats=BVStruc.ExpSetup.Repeats; % number of times protocol repeated
 
 % load biosemi gain
-load([mfilename('fullpath') '/../../resource/BioSemi_correction.mat']);
+load([fileparts(mfilename('fullpath')) '/../resource/BioSemi_correction.mat']);
 %% Correct for differences across freq
 
 fprintf('Normalising voltages in file %s\n',BVStruc.info.eegfname);
