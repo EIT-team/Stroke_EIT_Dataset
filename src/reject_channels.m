@@ -9,7 +9,7 @@ function [ BV_cleaned, idx_removed ] = reject_channels( BVin )
 
 %%
 % get the reference dataset used to reject bad channels
-load([mfilename('fullpath') '\..\..\resources\Average_Healthy.mat']);
+load([mfilename('fullpath') '/../../resource/Average_Healthy.mat']);
 
 BV_cleaned= BVin;
 idx_removed=cell(size(BVin,3),1);

@@ -61,7 +61,7 @@ The data were collected using the [UCL ScouseTom System](https://github.com/EIT-
 
 The processing is done in two separate parts:
 1. **Demodulation** - converting the "raw" sine waves into averaged impedance signals with magnitude and phase - uses the function `ScouseTom_Load` from [Load_data](https://github.com/EIT-team/Load_data).
-2. **Correction** and extraction of real component - these are the form necessary for reconstruction. Extraction of the real part and normalisation for BioSemi gain and injected current amplitude is performed using `normalised_dataset`. Subsequently, rejection of poor quality measurements is performed using `reject_channels`. Both of these functions are found in this repository and an example is given in `./resources/Process_single_dataset.m`.
+2. **Correction** and extraction of real component - these are the form necessary for reconstruction. Extraction of the real part and normalisation for BioSemi gain and injected current amplitude is performed using `normalised_dataset`. Subsequently, rejection of poor quality measurements is performed using `reject_channels`. Both of these functions are found in this repository and an example is given in `./resource/Process_single_dataset.m`.
 
 ### Demodulation
 For each subject and patient, there are three types of recordings:
@@ -165,17 +165,17 @@ A complete example is given in `Process_single_dataset.m`. Which produces the fo
 #### Batch Processing - Demodulation
 All files for a given patient/subject can be processed using `ScouseTom_ProcessBatch` or `ScouseTom_ProcessBatch('./Subjects/Subject_01a')`
 
-To demodulate _all_ patients and _all_ subjects, you can use the function `./resources/Demodulate_all.m` which is located in this directory. **Warning this takes a long time!**
+To demodulate _all_ patients and _all_ subjects, you can use the function `./resource/Demodulate_all.m` which is located in this directory. **Warning this takes a long time!**
 
 #### Batch Processing - Correction and data rejection
-The final steps are given in `./resources/make_final_dataset.m`, which corrects each dataset in turn and creates the final data structures `EITDATA` and `EITSETTINGS` stored in `UCL_Stroke_EIT_Dataset.mat`.
+The final steps are given in `./resource/make_final_dataset.m`, which corrects each dataset in turn and creates the final data structures `EITDATA` and `EITSETTINGS` stored in `UCL_Stroke_EIT_Dataset.mat`.
 
 -----
 
 ## Example Mesh & Electrode coordinates
-An example tetrahedral mesh is included in the `resources` folder, which is representative the of the type used in the UCL group in other [studies]((http://dx.doi.org/10.3390/s17020280)). The electrode positions are given both as nominal X, Y, Z coordinates and in the [EEG 10-10 system](http://www.ncbi.nlm.nih.gov/pubmed/11275545).
+An example tetrahedral mesh is included in the `resource` folder, which is representative the of the type used in the UCL group in other [studies]((http://dx.doi.org/10.3390/s17020280)). The electrode positions are given both as nominal X, Y, Z coordinates and in the [EEG 10-10 system](http://www.ncbi.nlm.nih.gov/pubmed/11275545).
 
-These can be visualised using the code `./resources/show_HASU_mesh.m`
+These can be visualised using the code `./resource/show_HASU_mesh.m`
 ![ExampleMesh](https://raw.githubusercontent.com/EIT-team/Stroke_EIT_Dataset/master/example_figures/ExampleMesh.png)
 
 ## EEG Extraction
